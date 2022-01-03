@@ -14,6 +14,10 @@ let disney = [
 ]
 
 let div = document.querySelectorAll("div");
+let score = document.getElementById("score");
+let imageClicked = null;
+let scorePoints = 0;
+let items = 0;
 
 //shake array
 disney.sort(()=>0.5 - Math.random());
@@ -40,26 +44,28 @@ for(let i=0; i < disney.length; i++) {
 //create class logo and img
 let logo = document.getElementsByClassName("front");
 let img = document.getElementsByClassName("back");
-let imageClicked = null;
+
 
 for (let i = 0 ; i < logo.length; i++) {
     //click logo so hidden logo
     logo[i].addEventListener("click", function () {
         logo[i].style.visibility = "hidden";
         if(null === imageClicked){
-            // premier click
+            // first click
             imageClicked = this.parentElement.querySelector('img').title;
+            items = i;
         }else{
-            // deuxieme click
+            // second click
             if(imageClicked === this.parentElement.querySelector('img').title ){
-                // ok c les memes
+                scorePoints++;
+                score.innerHTML = "Votre score est de " + scorePoints + "points";
             }
             else {
-                //looser, pas bon, je retourne les faces
+                setTimeout(function () {
+                    logo[i].style.visibility = "visible";
+                    logo[items].style.visibility = "visible";
+                },1000)
             }
-
-
-
             imageClicked = null;
         }
     });
