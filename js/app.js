@@ -59,14 +59,23 @@ for (let i = 0 ; i < logo.length; i++) {
             if(imageClicked === this.parentElement.querySelector('img').title ){
                 scorePoints++;
                 score.innerHTML = "Votre score est de " + scorePoints + "points";
+                if (scorePoints === 6) {
+                    let modal = new divModal();
+                    modal.windowDiv(" ","30vw","50vh","pink", "Score",
+                        scorePoints + " points", "2rem","url('/img/modal.jpg");
+
+                }
             }
             else {
                 setTimeout(function () {
                     logo[i].style.visibility = "visible";
                     logo[items].style.visibility = "visible";
-                },1000)
+                },500)
             }
             imageClicked = null;
         }
     });
 }
+
+
+

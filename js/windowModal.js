@@ -8,8 +8,9 @@ class divModal {
      * @param titleText
      * @param text
      * @param size
+     * @param image
      */
-    windowDiv(color, choiceVw, choiceVh, colorModal, titleText, text, size) {
+    windowDiv(color, choiceVw, choiceVh, colorModal, titleText, text, size, image) {
         const div = document.createElement("div");//create div back
         div.style.width = innerWidth + "px";
         div.style.height = innerHeight + "px";
@@ -20,6 +21,7 @@ class divModal {
         div.style.display = "flex";
         div.style.justifyContent= "center";
         div.style.alignItems = "center";
+        div.style.backgroundImage = image;
         document.body.appendChild(div);
 
         const div2 = document.createElement("div");// create div window
@@ -45,9 +47,9 @@ class divModal {
 
         const button = document.createElement("button");
         div2.appendChild(button);
-        button.innerHTML = "close";
+        button.innerHTML = "Rejouer";
         button.addEventListener("click", ()=> {
-            div.remove();
+            location.reload();
         })
     }
 }
