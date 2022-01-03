@@ -20,16 +20,16 @@ let scorePoints = 0;
 let items = 0;
 let temps = 30;
 
-// function countdown() {
-//     timer.innerText = temps.toString();
-//     temps--;
-//     if (temps === 0) {
-//         let modal = new divModal();
-//         modal.windowDiv(" ","30vw","50vh","pink", "Score",
-//             scorePoints + " points", "2rem","url('/img/modal.jpg");
-//     }
-// }
-// setInterval(countdown, 1000)
+function countdown() {
+    timer.innerText = temps.toString();
+    temps--;
+    if (temps === 0) {
+        let modal = new divModal();
+        modal.windowDiv(" ","30vw","50vh","pink", "Score",
+            scorePoints + " points", "2rem","url('/img/modal.jpg");
+    }
+}
+setInterval(countdown, 1000)
 
 //shake array
 disney.sort(()=>0.5 - Math.random());
@@ -55,7 +55,7 @@ for(let i=0; i < disney.length; i++) {
 
 //create class logo and img
 let logo = document.getElementsByClassName("front");
-let img = document.getElementsByClassName("back");
+// let img = document.getElementsByClassName("back");
 
 for (let i = 0 ; i < logo.length; i++) {
     //click logo so hidden logo
