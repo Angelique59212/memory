@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+h1, p {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+}
+
+div {
+    width: 12vw;
+    margin: 2rem;
+    position: relative;
+}
