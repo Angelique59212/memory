@@ -14,10 +14,22 @@ let disney = [
 ]
 
 let div = document.querySelectorAll("div");
-let score = document.getElementById("score");
+let timer = document.getElementById("temps");
 let imageClicked = null;
 let scorePoints = 0;
 let items = 0;
+let temps = 30;
+
+// function countdown() {
+//     timer.innerText = temps.toString();
+//     temps--;
+//     if (temps === 0) {
+//         let modal = new divModal();
+//         modal.windowDiv(" ","30vw","50vh","pink", "Score",
+//             scorePoints + " points", "2rem","url('/img/modal.jpg");
+//     }
+// }
+// setInterval(countdown, 1000)
 
 //shake array
 disney.sort(()=>0.5 - Math.random());
@@ -30,7 +42,7 @@ for(let i=0; i < disney.length; i++) {
     div[i].appendChild(img);
     img.style.width = "12vw";
 
-    //image recto
+    //image front
     let logo = document.createElement("img");
     logo.src = "img/log_disney.jpg";
     logo.className = "front";
@@ -45,11 +57,10 @@ for(let i=0; i < disney.length; i++) {
 let logo = document.getElementsByClassName("front");
 let img = document.getElementsByClassName("back");
 
-
 for (let i = 0 ; i < logo.length; i++) {
     //click logo so hidden logo
     logo[i].addEventListener("click", function () {
-        logo[i].style.visibility = "hidden";
+        logo[i].style.transform = "rotateY(90deg)";
         if(null === imageClicked){
             // first click
             imageClicked = this.parentElement.querySelector('img').title;
@@ -58,7 +69,6 @@ for (let i = 0 ; i < logo.length; i++) {
             // second click
             if(imageClicked === this.parentElement.querySelector('img').title ){
                 scorePoints++;
-                score.innerHTML = "Votre score est de " + scorePoints + "points";
                 if (scorePoints === 6) {
                     let modal = new divModal();
                     modal.windowDiv(" ","30vw","50vh","pink", "Score",
@@ -68,14 +78,16 @@ for (let i = 0 ; i < logo.length; i++) {
             }
             else {
                 setTimeout(function () {
-                    logo[i].style.visibility = "visible";
-                    logo[items].style.visibility = "visible";
+                    logo[i].style.transform = "rotateY(0deg)";
+                    logo[items].style.transform = "rotateY(0deg)";
                 },500)
             }
             imageClicked = null;
         }
     });
 }
+
+
 
 
 
