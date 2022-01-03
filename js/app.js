@@ -20,6 +20,7 @@ let scorePoints = 0;
 let items = 0;
 let temps = 30;
 
+//timer
 function countdown() {
     timer.innerText = temps.toString();
     temps--;
@@ -55,9 +56,9 @@ for(let i=0; i < disney.length; i++) {
 
 //create class logo and img
 let logo = document.getElementsByClassName("front");
-// let img = document.getElementsByClassName("back");
 
 for (let i = 0 ; i < logo.length; i++) {
+
     //click logo so hidden logo
     logo[i].addEventListener("click", function () {
         logo[i].style.transform = "rotateY(90deg)";
