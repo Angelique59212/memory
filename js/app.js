@@ -1,16 +1,16 @@
 let disney = [
-    "/img/anna.jpg",
-    "/img/elsa1.jpg",
-    "/img/jasmine.jpg",
-    "/img/pinochio.jpg",
-    "/img/pocahontas.jpg",
-    "/img/raiponce.jpg",
-    "/img/anna.jpg",
-    "/img/elsa1.jpg",
-    "/img/jasmine.jpg",
-    "/img/pinochio.jpg",
-    "/img/pocahontas.jpg",
-    "/img/raiponce.jpg"
+    "anna.jpg",
+    "elsa1.jpg",
+    "jasmine.jpg",
+    "pinochio.jpg",
+    "pocahontas.jpg",
+    "raiponce.jpg",
+    "anna.jpg",
+    "elsa1.jpg",
+    "jasmine.jpg",
+    "pinochio.jpg",
+    "pocahontas.jpg",
+    "raiponce.jpg"
 ]
 
 let div = document.querySelectorAll("div");
@@ -21,11 +21,12 @@ disney.sort(()=>0.5 - Math.random());
 //image game
 for(let i=0; i < disney.length; i++) {
     let img = document.createElement("img");
-    img.src = disney[i];
+    img.src = "/img/" + disney[i];
+    img.title = disney[i];
     div[i].appendChild(img);
     img.style.width = "12vw";
 
-//image recto
+    //image recto
     let logo = document.createElement("img");
     logo.src = "img/log_disney.jpg";
     logo.className = "front";
@@ -39,13 +40,27 @@ for(let i=0; i < disney.length; i++) {
 //create class logo and img
 let logo = document.getElementsByClassName("front");
 let img = document.getElementsByClassName("back");
+let imageClicked = null;
 
 for (let i = 0 ; i < logo.length; i++) {
     //click logo so hidden logo
     logo[i].addEventListener("click", function () {
         logo[i].style.visibility = "hidden";
-    })
-    img[i].addEventListener("click", function () {
+        if(null === imageClicked){
+            // premier click
+            imageClicked = this.parentElement.querySelector('img').title;
+        }else{
+            // deuxieme click
+            if(imageClicked === this.parentElement.querySelector('img').title ){
+                // ok c les memes
+            }
+            else {
+                //looser, pas bon, je retourne les faces
+            }
 
-    })
+
+
+            imageClicked = null;
+        }
+    });
 }
