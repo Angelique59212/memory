@@ -38,7 +38,7 @@ disney.sort(()=>0.5 - Math.random());
 //image game
 for(let i=0; i < disney.length; i++) {
     let img = document.createElement("img");
-    img.src = "/img/" + disney[i];
+    img.src = "img/" + disney[i];
     img.title = disney[i];
     div[i].appendChild(img);
     img.style.width = "12vw";
